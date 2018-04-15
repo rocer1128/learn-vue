@@ -31,6 +31,10 @@
 			<todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
 		</ol>
 	</div>
+	<div id='app-8'>
+		<p>{{foo}}</p>
+		<button v-on:click="foo='baz'">change it</button>		
+	</div>
 </body>
 <script>
 	var app = new Vue({
@@ -91,6 +95,14 @@
 			{id:2,text:'随便什么'}
 			]
 		}
+	});
+	var obj = {
+		foo:'bar'
+	}
+	Object.freeze(obj);
+	new Vue({
+		el:'#app-8',
+		data:obj
 	});
 </script>
 </html>
